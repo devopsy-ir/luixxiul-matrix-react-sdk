@@ -59,6 +59,10 @@ limitations under the License.
         .mx_EventTile_line {
             padding-inline-start: $left-gutter;
             padding-inline-end: 36px;
+
+            .mx_EventTile_e2eIcon {
+                left: calc(8px + $left-gutter); // TODO: check
+            }
         }
 
         .mx_DisambiguatedProfile,
