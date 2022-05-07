@@ -919,7 +919,6 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
             display: flex;
             align-items: center;
             gap: $spacing-16; // gap between the avatar and the sender ID
-            padding-inline-start: $spacing-8;
 
             a {
                 flex: 1;

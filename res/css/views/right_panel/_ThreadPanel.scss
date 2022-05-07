@@ -15,6 +15,8 @@ limitations under the License.
 */
 
 .mx_ThreadPanel {
+    --threadPanel-spacing-gutter-avatar: $spacing-8;
+
     display: flex;
     flex-direction: column;
     height: 100px;
@@ -195,7 +197,15 @@ limitations under the License.
         padding-left: 30px !important; // Override main timeline styling - align summary text with message text
     }
 
-    .mx_EventTile:not([data-layout=bubble]) {
+    .mx_EventTile {
+        &[data-layout=group] {
+            // For ThreadView
+            .mx_EventTile_senderDetails {
+                padding-inline-start: var(--threadPanel-spacing-gutter-avatar);
+            }
+        }
+
+        &:not([data-layout=bubble]) {
         .mx_EventTile_e2eIcon {
             left: 8px;
         }
@@ -203,6 +213,7 @@ limitations under the License.
         &:hover .mx_EventTile_line {
             box-shadow: unset !important; // don't show the verification left stroke in the thread list
         }
+    }
     }
 
     .mx_MessageComposer {
