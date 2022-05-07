@@ -15,6 +15,8 @@ limitations under the License.
 */
 
 .mx_TimelineCard {
+    --timelineCard-gutter-left: $spacing-8;
+
     .mx_TimelineCard__header {
         margin-left: 6px;
 
@@ -73,14 +75,13 @@ limitations under the License.
         }
 
         .mx_ThreadSummary {
-            margin-right: 0;
+            margin-inline-start: calc(64px - var(--timelineCard-gutter-left));
             max-width: min(calc(100% - 36px), 600px);
         }
 
         .mx_EventTile_avatar {
             position: absolute; // for IRC layout
             top: 12px;
-            left: -3px;
         }
 
         .mx_MessageTimestamp {
@@ -107,11 +108,13 @@ limitations under the License.
     .mx_GroupLayout {
         .mx_EventTile {
             > .mx_DisambiguatedProfile {
-                margin-left: 36px;
+                margin-inline-start: calc(64px - var(--timelineCard-gutter-left));
             }
 
             .mx_EventTile_line {
-                padding-bottom: 8px;
+                padding-inline-start: calc(64px - var(--timelineCard-gutter-left));
+                padding-top: 2px;
+                padding-bottom: 2px;
             }
         }
     }
