@@ -283,6 +283,10 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
         .mx_RedactedBody {
             line-height: 1; // remove spacing between lines
         }
+
+        .mx_MessageTimestamp {
+            line-height: calc(var(--GroupLayout-EventTile-line-height) - 2px); // 2px: padding (3px - 1px)
+        }
     }
 }
 
