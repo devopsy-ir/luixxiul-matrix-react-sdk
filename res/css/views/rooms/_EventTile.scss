@@ -863,17 +863,8 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
         display: flex;
         flex-direction: column;
 
-        .mx_EventTile_line {
-            padding-top: var(--BaseCard_EventTile_line-padding-block);
-            padding-bottom: var(--BaseCard_EventTile_line-padding-block);
-        }
-
-        .mx_EventTile_line,
         .mx_ReactionsRow {
-            padding-inline-start: 0; // Cancel inherited padding value for event message and reactions row
-        }
-
-        .mx_ReactionsRow {
+            padding-inline-start: 0; // Cancel inherited padding value for reactions row
             padding-inline-end: 0;
         }
 
@@ -885,6 +876,7 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
             padding-top: $spacing-16;
 
             .mx_EventTile_line {
+                padding-inline-start: 0; // Cancel inherited padding value for event message
                 padding-top: var(--BaseCard_EventTile_line-padding-block);
                 padding-bottom: var(--BaseCard_EventTile_line-padding-block);
 
