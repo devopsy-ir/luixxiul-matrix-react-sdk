@@ -1051,6 +1051,10 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
     }
 
     .mx_GenericEventListSummary {
+        * {
+            box-sizing: border-box;
+        }
+
         &[data-expanded=true] {
             .mx_EventTile_info {
                 padding-block: 0;
