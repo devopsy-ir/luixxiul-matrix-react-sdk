@@ -245,6 +245,16 @@ limitations under the License.
                     left: calc($MessageTimestamp_width + 14px - 4px); // 14px: avatar width, 4px: align with text
                     z-index: 9; // position above the hover styling
                 }
+
+                // Event text related to display name change etc.
+                .mx_EventTile_line {
+                    padding-inline-start: var(--ThreadView_group_spacing-start);
+
+                    .mx_TextualEvent {
+                        display: inline;
+                        margin-inline-start: calc(14px + $spacing-4); // 14px: avatar width
+                    }
+                }
             }
 
             &[data-layout=bubble] {
