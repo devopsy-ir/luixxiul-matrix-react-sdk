@@ -1066,6 +1066,10 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
 
                 .mx_EventTile_line {
                     padding-block: var(--BaseCard_EventTile_line-padding-block);
+
+                    > a {
+                        inset-inline-start: 0;
+                    }
                 }
 
                 &[data-layout="bubble"] {
