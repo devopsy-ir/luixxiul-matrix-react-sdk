@@ -323,10 +323,10 @@ legend {
     background-color: $dialog-backdrop-color;
     opacity: 0.8;
     z-index: 4011;
-}
 
-.mx_Dialog_background.mx_Dialog_staticBackground {
+&.mx_Dialog_staticBackground {
     z-index: 4009;
+}
 }
 
 .mx_Dialog_wrapperWithStaticUnder .mx_Dialog_background {
