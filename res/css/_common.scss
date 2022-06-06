@@ -115,9 +115,10 @@ a:visited {
     color: $accent-alt;
 }
 
-input[type=text],
-input[type=search],
-input[type=password] {
+input {
+    &[type=text],
+    &[type=search],
+    &[type=password] {
     font-family: inherit;
     padding: 9px;
     font-size: $font-14px;
@@ -125,8 +126,8 @@ input[type=password] {
     min-width: 0;
 }
 
-input[type=text],
-input[type=search] {
+    &[type=text],
+    &[type=search] {
     &.mx_textinput_icon {
     padding-left: 36px;
     background-repeat: no-repeat;
@@ -135,6 +136,7 @@ input[type=search] {
     // FIXME THEME - Tint by CSS rather than referencing a duplicate asset
     &.mx_textinput_search {
         background-image: url('$(res)/img/feather-customised/search-input.svg');
+}
 }
 }
 }
