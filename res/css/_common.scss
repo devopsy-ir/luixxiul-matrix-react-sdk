@@ -131,13 +131,12 @@ input[type=search] {
     padding-left: 36px;
     background-repeat: no-repeat;
     background-position: 10px center;
-}
-}
 
-// FIXME THEME - Tint by CSS rather than referencing a duplicate asset
-input[type=text].mx_textinput_icon.mx_textinput_search,
-input[type=search].mx_textinput_icon.mx_textinput_search {
-    background-image: url('$(res)/img/feather-customised/search-input.svg');
+    // FIXME THEME - Tint by CSS rather than referencing a duplicate asset
+    &.mx_textinput_search {
+        background-image: url('$(res)/img/feather-customised/search-input.svg');
+}
+}
 }
 
 // dont search UI as not all browsers support it,
