@@ -355,12 +355,6 @@ legend {
 }
 }
 
-.mx_Dialog_header {
-    position: relative;
-    padding: 3px 0;
-    margin-bottom: 10px;
-}
-
 .mx_Dialog_titleImage {
     vertical-align: sub;
     width: 25px;
@@ -378,6 +372,10 @@ legend {
 }
 
 .mx_Dialog_header {
+    position: relative;
+    padding: 3px 0;
+    margin-bottom: 10px;
+
     &.mx_Dialog_headerWithButton > .mx_Dialog_title {
     text-align: center;
 }
