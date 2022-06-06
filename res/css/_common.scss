@@ -324,9 +324,9 @@ legend {
     opacity: 0.8;
     z-index: 4011;
 
-&.mx_Dialog_staticBackground {
-    z-index: 4009;
-}
+    &.mx_Dialog_staticBackground {
+        z-index: 4009;
+    }
 }
 
 .mx_Dialog_wrapperWithStaticUnder .mx_Dialog_background {
@@ -336,23 +336,23 @@ legend {
 }
 
 .mx_Dialog_lightbox {
-.mx_Dialog_background {
-    opacity: $lightbox-background-bg-opacity;
-    background-color: $lightbox-background-bg-color;
-    animation-name: mx_Dialog_lightbox_background_keyframes;
-    animation-duration: 300ms;
-}
+    .mx_Dialog_background {
+        opacity: $lightbox-background-bg-opacity;
+        background-color: $lightbox-background-bg-color;
+        animation-name: mx_Dialog_lightbox_background_keyframes;
+        animation-duration: 300ms;
+    }
 
-.mx_Dialog {
-    border-radius: 0px;
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
-    pointer-events: none;
-    padding: 0;
-}
+    .mx_Dialog {
+        border-radius: 0px;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        pointer-events: none;
+        padding: 0;
+    }
 }
 
 .mx_Dialog_titleImage {
@@ -370,9 +370,9 @@ legend {
     width: 100%;
     box-sizing: border-box;
 
-&.danger {
-    color: $alert;
-}
+    &.danger {
+        color: $alert;
+    }
 }
 
 .mx_Dialog_header {
@@ -381,12 +381,12 @@ legend {
     margin-bottom: 10px;
 
     &.mx_Dialog_headerWithButton > .mx_Dialog_title {
-    text-align: center;
-}
+        text-align: center;
+    }
 
-&.mx_Dialog_headerWithCancel {
-    padding-right: 20px; // leave space for the 'X' cancel button
-}
+    &.mx_Dialog_headerWithCancel {
+        padding-right: 20px; // leave space for the 'X' cancel button
+    }
 }
 
 @define-mixin customisedCancelButton {
@@ -551,9 +551,9 @@ legend {
     display: inline;
     margin: auto;
 
-&:hover {
-    @mixin mx_DialogButton_hover;
-}
+    &:hover {
+        @mixin mx_DialogButton_hover;
+    }
 }
 
 .mx_linkButton {
@@ -578,9 +578,9 @@ legend {
 .mx_textButton {
     @mixin mx_DialogButton_small;
 
-&:hover {
-    @mixin mx_DialogButton_hover;
-}
+    &:hover {
+        @mixin mx_DialogButton_hover;
+    }
 }
 
 .mx_button_row {
