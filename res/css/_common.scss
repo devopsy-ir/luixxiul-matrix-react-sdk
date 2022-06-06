@@ -577,10 +577,10 @@ legend {
 
 .mx_textButton {
     @mixin mx_DialogButton_small;
-}
 
-.mx_textButton:hover {
+&:hover {
     @mixin mx_DialogButton_hover;
+}
 }
 
 .mx_button_row {
