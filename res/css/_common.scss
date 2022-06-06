@@ -158,18 +158,16 @@ input[type=password],
 textarea {
     background-color: transparent;
     color: $primary-content;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
 }
 
 /* Required by Firefox */
 textarea {
     color: $primary-content;
-}
-
-input[type=text]:focus,
-input[type=password]:focus,
-textarea:focus {
-    outline: none;
-    box-shadow: none;
 }
 
 // This is used to hide the standard outline added by browsers for
