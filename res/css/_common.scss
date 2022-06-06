@@ -550,10 +550,10 @@ legend {
     @mixin mx_DialogButton;
     display: inline;
     margin: auto;
-}
 
-.mx_GeneralButton:hover {
+&:hover {
     @mixin mx_DialogButton_hover;
+}
 }
 
 .mx_linkButton {
