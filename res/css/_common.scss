@@ -119,37 +119,37 @@ input {
     &[type=text],
     &[type=search],
     &[type=password] {
-    font-family: inherit;
-    padding: 9px;
-    font-size: $font-14px;
-    font-weight: 600;
-    min-width: 0;
-}
+        font-family: inherit;
+        padding: 9px;
+        font-size: $font-14px;
+        font-weight: 600;
+        min-width: 0;
+    }
 
     &[type=text],
     &[type=search] {
-    &.mx_textinput_icon {
-    padding-left: 36px;
-    background-repeat: no-repeat;
-    background-position: 10px center;
+        &.mx_textinput_icon {
+            padding-left: 36px;
+            background-repeat: no-repeat;
+            background-position: 10px center;
 
-    // FIXME THEME - Tint by CSS rather than referencing a duplicate asset
-    &.mx_textinput_search {
-        background-image: url('$(res)/img/feather-customised/search-input.svg');
-}
-}
-}
+            // FIXME THEME - Tint by CSS rather than referencing a duplicate asset
+            &.mx_textinput_search {
+                background-image: url('$(res)/img/feather-customised/search-input.svg');
+            }
+        }
+    }
 
-// dont search UI as not all browsers support it,
-// we implement it ourselves where needed instead
-&[type=search] {
-    &::-webkit-search-decoration,
-    &::-webkit-search-cancel-button,
-    &::-webkit-search-results-button,
-    &::-webkit-search-results-decoration {
-    display: none;
-}
-}
+    // dont search UI as not all browsers support it,
+    // we implement it ourselves where needed instead
+    &[type=search] {
+        &::-webkit-search-decoration,
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-results-button,
+        &::-webkit-search-results-decoration {
+            display: none;
+        }
+    }
 }
 
 // Override Firefox's UA style so we get a consistent look across browsers
