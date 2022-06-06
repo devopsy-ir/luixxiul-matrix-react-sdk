@@ -342,9 +342,8 @@ legend {
     animation-name: mx_Dialog_lightbox_background_keyframes;
     animation-duration: 300ms;
 }
-}
 
-.mx_Dialog_lightbox .mx_Dialog {
+.mx_Dialog {
     border-radius: 0px;
     background-color: transparent;
     width: 100%;
@@ -353,6 +352,7 @@ legend {
     max-height: 100%;
     pointer-events: none;
     padding: 0;
+}
 }
 
 .mx_Dialog_header {
