@@ -139,16 +139,16 @@ input {
 }
 }
 }
-}
 
 // dont search UI as not all browsers support it,
 // we implement it ourselves where needed instead
-input[type=search] {
+&[type=search] {
     &::-webkit-search-decoration,
     &::-webkit-search-cancel-button,
     &::-webkit-search-results-button,
     &::-webkit-search-results-decoration {
     display: none;
+}
 }
 }
 
