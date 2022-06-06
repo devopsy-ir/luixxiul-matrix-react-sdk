@@ -369,6 +369,10 @@ legend {
     display: inline-block;
     width: 100%;
     box-sizing: border-box;
+
+&.danger {
+    color: $alert;
+}
 }
 
 .mx_Dialog_header {
@@ -383,10 +387,6 @@ legend {
 &.mx_Dialog_headerWithCancel {
     padding-right: 20px; // leave space for the 'X' cancel button
 }
-}
-
-.mx_Dialog_title.danger {
-    color: $alert;
 }
 
 @define-mixin customisedCancelButton {
