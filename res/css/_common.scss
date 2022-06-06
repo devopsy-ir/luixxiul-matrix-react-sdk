@@ -74,13 +74,16 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-pre, code {
+pre,
+code {
     font-family: $monospace-font-family;
     font-size: 100% !important;
 }
 
-.error, .warning,
-.text-error, .text-warning {
+.error,
+.warning,
+.text-error,
+.text-warning {
     color: $alert;
 }
 
@@ -150,7 +153,9 @@ textarea::placeholder {
     opacity: initial;
 }
 
-input[type=text], input[type=password], textarea {
+input[type=text],
+input[type=password],
+textarea {
     background-color: transparent;
     color: $primary-content;
 }
@@ -160,7 +165,9 @@ textarea {
     color: $primary-content;
 }
 
-input[type=text]:focus, input[type=password]:focus, textarea:focus {
+input[type=text]:focus,
+input[type=password]:focus,
+textarea:focus {
     outline: none;
     box-shadow: none;
 }
@@ -193,7 +200,8 @@ legend {
 // it has the appearance of a text box so the controls
 // appear to be part of the input
 
-.mx_Dialog, .mx_MatrixChat_wrapper {
+.mx_Dialog,
+.mx_MatrixChat_wrapper {
     .mx_textinput > input[type=text],
     .mx_textinput > input[type=search] {
         border: none;
