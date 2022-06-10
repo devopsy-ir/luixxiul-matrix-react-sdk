@@ -44,6 +44,12 @@ $MinWidth: 240px;
                 margin-right: 12px;
             }
         }
+
+        .mx_AppTileMenuBarWidgets {
+            .mx_AppTileMenuBar_iconButton::before {
+                background-color: $secondary-content;
+            }
+        }
     }
 
     .mx_AppsContainer_resizerHandleContainer {
@@ -225,7 +231,6 @@ $MinWidth: 240px;
     width: 24px;
 
     &::before {
-        background-color: $muted-fg-color;
         content: '';
         height: 24px;
         mask-position: center;
