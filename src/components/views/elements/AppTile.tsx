@@ -703,7 +703,7 @@ export default class AppTile extends React.Component<IProps, IState> {
         return <React.Fragment>
             <div className={appTileClasses} id={this.props.app.id}>
                 { this.props.showMenubar &&
-                    <div className="mx_AppTileMenuBar">
+                    <div className="mx_BaseCard_header mx_AppTileMenuBar">
                         <span className="mx_AppTileMenuBarTitle" style={{ pointerEvents: (this.props.handleMinimisePointerEvents ? 'all' : "none") }}>
                             { this.props.showTitle && this.getTileTitle() }
                         </span>
