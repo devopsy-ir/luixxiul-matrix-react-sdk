@@ -51,6 +51,7 @@ import { ActionPayload } from "../../../dispatcher/payloads";
 import { Action } from '../../../dispatcher/actions';
 import { ElementWidgetCapabilities } from '../../../stores/widgets/ElementWidgetCapabilities';
 import { WidgetMessagingStore } from '../../../stores/widgets/WidgetMessagingStore';
+import Heading from '../typography/Heading';
 
 interface IProps {
     app: IApp;
@@ -490,11 +491,11 @@ export default class AppTile extends React.Component<IProps, IState> {
         }
 
         return (
-            <span>
+            <>
                 <WidgetAvatar app={this.props.app} />
-                <b>{ name }</b>
+                <Heading size="h4" className="mx_BaseCard_header_title_heading">{ name }</Heading>
                 <span>{ title ? titleSpacer : '' }{ title }</span>
-            </span>
+            </>
         );
     }
 
@@ -704,7 +705,7 @@ export default class AppTile extends React.Component<IProps, IState> {
             <div className={appTileClasses} id={this.props.app.id}>
                 { this.props.showMenubar &&
                     <div className="mx_BaseCard_header mx_AppTileMenuBar">
-                        <span className="mx_AppTileMenuBarTitle" style={{ pointerEvents: (this.props.handleMinimisePointerEvents ? 'all' : "none") }}>
+                        <span className="mx_BaseCard_header_title mx_AppTileMenuBarTitle" style={{ pointerEvents: (this.props.handleMinimisePointerEvents ? 'all' : "none") }}>
                             { this.props.showTitle && this.getTileTitle() }
                         </span>
                         <span className="mx_AppTileMenuBarWidgets">
