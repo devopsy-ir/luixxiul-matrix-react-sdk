@@ -19,10 +19,10 @@ limitations under the License.
         margin-bottom: 0;
 
         li {
-            margin-bottom: 5px; // TODO: Use a spacing variable
+            margin-bottom: $spacing-4;
 
             .mx_RolesRoomSettingsTab_unbanBtn {
-                margin-inline-end: 10px; // TODO: Use a spacing variable
+                margin-inline-end: $spacing-8;
             }
         }
     }
