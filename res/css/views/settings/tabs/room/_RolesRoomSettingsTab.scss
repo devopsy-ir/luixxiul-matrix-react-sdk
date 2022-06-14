@@ -14,11 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-.mx_RolesRoomSettingsTab ul {
-    margin-bottom: 0;
-}
+.mx_RolesRoomSettingsTab {
+    ul {
+        margin-bottom: 0;
 
-.mx_RolesRoomSettingsTab_unbanBtn {
-    margin-right: 10px;
-    margin-bottom: 5px;
+        li {
+            margin-bottom: 5px; // TODO: Use a spacing variable
+
+            .mx_RolesRoomSettingsTab_unbanBtn {
+                margin-inline-end: 10px; // TODO: Use a spacing variable
+            }
+        }
+    }
 }
