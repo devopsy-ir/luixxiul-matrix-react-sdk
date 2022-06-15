@@ -77,11 +77,3 @@ limitations under the License.
         cursor: zoom-in;
     }
 }
-
-.mx_MemberInfo_statusMessage {
-    font-size: $font-11px;
-    opacity: 0.5;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: clip;
-}
