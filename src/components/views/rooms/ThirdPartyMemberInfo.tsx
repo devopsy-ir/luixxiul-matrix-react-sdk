@@ -141,10 +141,9 @@ export default class ThirdPartyMemberInfo extends React.Component<IProps, IState
             </div>;
         }
 
-        // We shamelessly rip off the MemberInfo styles here.
         return <BaseCard
             header={scopeHeader}
-            className="mx_UserInfo mx_MemberInfo"
+            className="mx_UserInfo"
             onClose={this.onCancel}
         >
             <h2 className="mx_UserInfo_profile">{ this.state.displayName }</h2>
