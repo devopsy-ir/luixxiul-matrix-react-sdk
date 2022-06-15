@@ -63,6 +63,10 @@ limitations under the License.
             }
         }
 
+        &.mx_UserInfo_container_senderName {
+            font-size: $font-15px;
+        }
+
         .mx_UserInfo_container_verifyButton {
             margin-top: $spacing-8;
         }
