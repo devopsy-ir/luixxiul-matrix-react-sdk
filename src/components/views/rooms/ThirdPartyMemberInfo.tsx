@@ -125,7 +125,7 @@ export default class ThirdPartyMemberInfo extends React.Component<IProps, IState
         if (this.state.canKick && this.state.invited) {
             adminTools = (
                 <Group title={_t("Admin Tools")}>
-                    <AccessibleButton className="mx_MemberInfo_field" onClick={this.onKickClick}>
+                    <AccessibleButton kind='link' onClick={this.onKickClick}>
                         { _t("Revoke invite") }
                     </AccessibleButton>
                 </Group>
