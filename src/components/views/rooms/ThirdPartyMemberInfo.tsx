@@ -146,9 +146,7 @@ export default class ThirdPartyMemberInfo extends React.Component<IProps, IState
             className="mx_MemberInfo"
             onClose={this.onCancel}
         >
-            <div className="mx_MemberInfo_name">
-                <h2>{ this.state.displayName }</h2>
-            </div>
+            <h2>{ this.state.displayName }</h2>
             <div className="mx_MemberInfo_container">
                 <div className="mx_MemberInfo_profile">
                     <div className="mx_MemberInfo_profileField">

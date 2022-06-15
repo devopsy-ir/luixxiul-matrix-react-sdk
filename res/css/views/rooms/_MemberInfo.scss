@@ -57,21 +57,6 @@ limitations under the License.
     }
 }
 
-.mx_MemberInfo_name {
-    align-items: center;
-    display: flex;
-
-    > .mx_E2EIcon {
-        margin-right: 0;
-    }
-
-    h2 {
-        flex: 1;
-        overflow-x: auto;
-        max-height: 50px;
-    }
-}
-
 .mx_MemberInfo_container {
     margin: 0 16px 16px 16px;
 }
