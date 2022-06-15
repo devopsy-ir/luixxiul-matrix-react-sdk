@@ -147,7 +147,7 @@ export default class ThirdPartyMemberInfo extends React.Component<IProps, IState
             className="mx_UserInfo mx_MemberInfo"
             onClose={this.onCancel}
         >
-            <h2>{ this.state.displayName }</h2>
+            <h2 className="mx_UserInfo_profile">{ this.state.displayName }</h2>
             <div className="mx_UserInfo_container">
                 { _t("Invited by %(sender)s", { sender: this.state.senderName }) }
             </div>
