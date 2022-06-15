@@ -83,17 +83,6 @@ limitations under the License.
     }
 }
 
-.mx_MemberInfo_cancel {
-    height: 16px;
-    width: 16px;
-    padding: 10px 0 10px 10px;
-    cursor: pointer;
-    mask-image: url('$(res)/img/minimise.svg');
-    mask-repeat: no-repeat;
-    mask-position: 16px center;
-    background-color: $header-panel-text-primary-color;
-}
-
 .mx_MemberInfo_container {
     margin: 0 16px 16px 16px;
 }
