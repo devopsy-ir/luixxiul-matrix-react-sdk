@@ -126,9 +126,11 @@ export default class ThirdPartyMemberInfo extends React.Component<IProps, IState
             adminTools = (
                 <div className="mx_UserInfo_container">
                     <h3>{_t("Admin Tools")}</h3>
-                    <AccessibleButton kind='link' onClick={this.onKickClick}>
-                        { _t("Revoke invite") }
-                    </AccessibleButton>
+                    <div className="mx_UserInfo_field">
+                        <AccessibleButton kind='link' onClick={this.onKickClick}>
+                            { _t("Revoke invite") }
+                        </AccessibleButton>
+                    </div>
                 </div>
             );
         }
