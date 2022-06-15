@@ -30,7 +30,7 @@ import RoomAvatar from "../avatars/RoomAvatar";
 import RoomName from "../elements/RoomName";
 import ErrorDialog from '../dialogs/ErrorDialog';
 import AccessibleButton from '../elements/AccessibleButton';
-import BaseCard from "../right_panel/BaseCard";
+import BaseCard, { Group } from "../right_panel/BaseCard";
 
 interface IProps {
     event: MatrixEvent;
@@ -124,14 +124,15 @@ export default class ThirdPartyMemberInfo extends React.Component<IProps, IState
         let adminTools = null;
         if (this.state.canKick && this.state.invited) {
             adminTools = (
-                <div className="mx_MemberInfo_container">
-                    <h3>{ _t("Admin Tools") }</h3>
-                    <div className="mx_MemberInfo_buttons">
-                        <AccessibleButton className="mx_MemberInfo_field" onClick={this.onKickClick}>
-                            { _t("Revoke invite") }
-                        </AccessibleButton>
+                <Group title={_t("Admin Tools")}>
+                    <div className="mx_MemberInfo_container">
+                        <div className="mx_MemberInfo_buttons">
+                            <AccessibleButton className="mx_MemberInfo_field" onClick={this.onKickClick}>
+                                { _t("Revoke invite") }
+                            </AccessibleButton>
+                        </div>
                     </div>
-                </div>
+                </Group>
             );
         }
 
