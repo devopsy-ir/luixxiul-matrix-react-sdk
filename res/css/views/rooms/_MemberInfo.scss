@@ -49,12 +49,12 @@ limitations under the License.
 
     label {
         font-size: $font-13px;
-    }
 
-    label .mx_MemberInfo_label_text {
-        display: inline-block;
-        max-width: 180px;
-        vertical-align: text-top;
+        .mx_MemberInfo_label_text {
+            display: inline-block;
+            max-width: 180px;
+            vertical-align: text-top;
+        }
     }
 
     input[type="radio"] {
@@ -71,10 +71,16 @@ limitations under the License.
 .mx_MemberInfo_name {
     align-items: center;
     display: flex;
-}
 
-.mx_MemberInfo_name > .mx_E2EIcon {
-    margin-right: 0;
+    > .mx_E2EIcon {
+        margin-right: 0;
+    }
+
+    h2 {
+        flex: 1;
+        overflow-x: auto;
+        max-height: 50px;
+    }
 }
 
 .mx_MemberInfo_cancel {
@@ -88,12 +94,6 @@ limitations under the License.
     background-color: $header-panel-text-primary-color;
 }
 
-.mx_MemberInfo_name h2 {
-    flex: 1;
-    overflow-x: auto;
-    max-height: 50px;
-}
-
 .mx_MemberInfo_container {
     margin: 0 16px 16px 16px;
 }
@@ -101,18 +101,18 @@ limitations under the License.
 .mx_MemberInfo_avatar {
     background: $spacePanel-bg-color;
     margin-bottom: 16px;
-}
 
-.mx_MemberInfo_avatar > img {
-    height: auto;
-    width: 100%;
-    max-height: 30vh;
-    object-fit: contain;
-    display: block;
-}
+    > img {
+        height: auto;
+        width: 100%;
+        max-height: 30vh;
+        object-fit: contain;
+        display: block;
+    }
 
-.mx_MemberInfo_avatar .mx_BaseAvatar.mx_BaseAvatar_image {
-    cursor: zoom-in;
+    .mx_BaseAvatar.mx_BaseAvatar_image {
+        cursor: zoom-in;
+    }
 }
 
 .mx_MemberInfo_profile {
