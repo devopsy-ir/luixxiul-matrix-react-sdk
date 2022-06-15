@@ -30,6 +30,7 @@ import RoomAvatar from "../avatars/RoomAvatar";
 import RoomName from "../elements/RoomName";
 import ErrorDialog from '../dialogs/ErrorDialog';
 import AccessibleButton from '../elements/AccessibleButton';
+import BaseCard from "../right_panel/BaseCard";
 
 interface IProps {
     event: MatrixEvent;
@@ -143,25 +144,26 @@ export default class ThirdPartyMemberInfo extends React.Component<IProps, IState
         }
 
         // We shamelessly rip off the MemberInfo styles here.
-        return (
-            <div className="mx_MemberInfo" role="tabpanel">
-                { scopeHeader }
-                <div className="mx_MemberInfo_name">
-                    <AccessibleButton className="mx_MemberInfo_cancel"
-                        onClick={this.onCancel}
-                        title={_t('Close')}
-                    />
-                    <h2>{ this.state.displayName }</h2>
-                </div>
-                <div className="mx_MemberInfo_container">
-                    <div className="mx_MemberInfo_profile">
-                        <div className="mx_MemberInfo_profileField">
-                            { _t("Invited by %(sender)s", { sender: this.state.senderName }) }
-                        </div>
+        return <BaseCard
+            header={scopeHeader}
+            className="mx_MemberInfo"
+            onClose={this.onCancel}
+        >
+            <div className="mx_MemberInfo_name">
+                <AccessibleButton className="mx_MemberInfo_cancel"
+                    onClick={this.onCancel}
+                    title={_t('Close')}
+                />
+                <h2>{ this.state.displayName }</h2>
+            </div>
+            <div className="mx_MemberInfo_container">
+                <div className="mx_MemberInfo_profile">
+                    <div className="mx_MemberInfo_profileField">
+                        { _t("Invited by %(sender)s", { sender: this.state.senderName }) }
                     </div>
                 </div>
-                { adminTools }
             </div>
-        );
+            { adminTools }
+        </BaseCard>;
     }
 }
