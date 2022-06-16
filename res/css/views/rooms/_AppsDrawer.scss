@@ -34,14 +34,25 @@ $MinWidth: 240px;
     }
 
     .mx_BaseCard_header {
-        .mx_AppTileMenuBarTitle {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            justify-content: flex-start;
+        &.mx_AppTileMenuBar {
+            margin: 0;
+            font-size: $font-12px;
+            background-color: $widget-menu-bar-bg-color;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
 
-            .mx_WidgetAvatar {
-                margin-right: 12px;
+            .mx_AppTileMenuBarTitle {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                justify-content: flex-start;
+
+                .mx_WidgetAvatar {
+                    margin-right: 12px;
+                }
             }
         }
 
@@ -204,17 +215,6 @@ $MinWidth: 240px;
 .mx_AppTile_persistedWrapper div {
     width: 100%;
     height: 100%;
-}
-
-.mx_AppTileMenuBar {
-    margin: 0;
-    font-size: $font-12px;
-    background-color: $widget-menu-bar-bg-color;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
 }
 
 .mx_AppTileMenuBarWidgets {
