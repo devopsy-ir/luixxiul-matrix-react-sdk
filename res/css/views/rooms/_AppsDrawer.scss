@@ -44,8 +44,8 @@ $MinWidth: 240px;
                 text-overflow: ellipsis;
                 justify-content: flex-start;
 
-                .mx_WidgetAvatar {
-                    margin-right: 12px;
+                .mx_BaseCard_header_title_heading {
+                    margin-inline-start: 6px;
                 }
             }
         }
