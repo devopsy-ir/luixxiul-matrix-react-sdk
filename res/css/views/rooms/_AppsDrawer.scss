@@ -35,11 +35,9 @@ $MinWidth: 240px;
 
     .mx_BaseCard_header {
         &.mx_AppTileMenuBar {
-            margin: 0;
             font-size: $font-12px;
             background-color: $widget-menu-bar-bg-color;
             display: flex;
-            flex-direction: row;
             align-items: center;
             justify-content: space-between;
             width: 100%;
