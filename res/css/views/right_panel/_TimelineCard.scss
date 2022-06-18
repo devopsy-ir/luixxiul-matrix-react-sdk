@@ -89,7 +89,11 @@ limitations under the License.
 
             &.mx_EventTile_info {
                 .mx_EventTile_avatar {
-                    left: 18px;
+                    inset-inline-start: 0;
+                    padding-inline: 0;
+
+                    // 14px: avatar width, 5px: gap between the avatar and info text (magic number)
+                    margin-inline-start: calc(var(--BaseCard_EventTile_group-spacing-start) - 14px - 5px);
                 }
             }
         }
