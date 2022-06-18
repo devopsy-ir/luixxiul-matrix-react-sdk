@@ -864,7 +864,6 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
 
 // For style rules of ThreadView, see _ThreadPanel.scss
 .mx_ThreadView {
-    --ThreadView_group_spacing-start: 56px; // 56px: 64px - 8px (padding)
     --ThreadView_group_spacing-end: 8px; // same as padding
 
     .mx_EventTile {
@@ -920,7 +919,7 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
                 .mx_EventTile_content,
                 .mx_RedactedBody {
                     width: auto;
-                    margin-inline-start: calc(var(--ThreadView_group_spacing-start) + 14px + 6px); // 14px: avatar width, 6px: 20px - 14px
+                    margin-inline-start: calc(var(--BaseCard_EventTile_group-spacing-start) + 14px + 6px); // 14px: avatar width, 6px: 20px - 14px
                     font-size: $line-height;
                 }
             }
@@ -1003,7 +1002,7 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
             .mx_MLocationBody,
             .mx_ReplyChain_wrapper,
             .mx_ReactionsRow {
-                margin-inline-start: var(--ThreadView_group_spacing-start);
+                margin-inline-start: var(--BaseCard_EventTile_group-spacing-start);
                 margin-inline-end: var(--ThreadView_group_spacing-end);
 
                 .mx_EventTile_content,
@@ -1025,7 +1024,7 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
                 // such as MImageBody
                 > div,
                 > span {
-                    margin-inline-start: var(--ThreadView_group_spacing-start);
+                    margin-inline-start: var(--BaseCard_EventTile_group-spacing-start);
                     margin-inline-end: var(--ThreadView_group_spacing-end);
                 }
 
@@ -1063,7 +1062,7 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
 
     .mx_GenericEventListSummary {
         &:not([data-layout=bubble]) > .mx_EventTile_line {
-            padding-inline-start: var(--ThreadView_group_spacing-start); // align summary text with message text
+            padding-inline-start: var(--BaseCard_EventTile_group-spacing-start); // align summary text with message text
             padding-inline-end: var(--ThreadView_group_spacing-end); // align summary text with message text
         }
     }

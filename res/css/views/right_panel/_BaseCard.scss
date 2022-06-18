@@ -17,6 +17,7 @@ limitations under the License.
 .mx_BaseCard {
     --BaseCard_EventTile_line-padding-block: 2px;
     --BaseCard_EventTile-spacing-inline: 36px; // TODO: Use a spacing variable
+    --BaseCard_EventTile_group-spacing-start: 56px; // 56px: 64px - 8px (padding)
     --BaseCard_header-button-size: 24px;
 
     padding: 0 $spacing-8;
