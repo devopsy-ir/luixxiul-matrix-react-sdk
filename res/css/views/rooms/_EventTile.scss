@@ -864,8 +864,6 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
 
 // For style rules of ThreadView, see _ThreadPanel.scss
 .mx_ThreadView {
-    --ThreadView_group_spacing-end: 8px; // same as padding
-
     .mx_EventTile {
         display: flex;
         flex-direction: column;
@@ -1003,7 +1001,7 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
             .mx_ReplyChain_wrapper,
             .mx_ReactionsRow {
                 margin-inline-start: var(--BaseCard_EventTile_group-spacing-start);
-                margin-inline-end: var(--ThreadView_group_spacing-end);
+                margin-inline-end: var(--BaseCard_EventTile_group-spacing-end);
 
                 .mx_EventTile_content,
                 .mx_HiddenBody,
@@ -1025,7 +1023,7 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
                 > div,
                 > span {
                     margin-inline-start: var(--BaseCard_EventTile_group-spacing-start);
-                    margin-inline-end: var(--ThreadView_group_spacing-end);
+                    margin-inline-end: var(--BaseCard_EventTile_group-spacing-end);
                 }
 
                 // such as MAudioBody and MFileBody
@@ -1063,7 +1061,7 @@ $threadInfoLineHeight: calc(2 * $font-12px); // See: _commons.scss
     .mx_GenericEventListSummary {
         &:not([data-layout=bubble]) > .mx_EventTile_line {
             padding-inline-start: var(--BaseCard_EventTile_group-spacing-start); // align summary text with message text
-            padding-inline-end: var(--ThreadView_group_spacing-end); // align summary text with message text
+            padding-inline-end: var(--BaseCard_EventTile_group-spacing-end); // align summary text with message text
         }
     }
 }
