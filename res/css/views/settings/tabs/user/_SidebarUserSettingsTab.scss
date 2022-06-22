@@ -17,6 +17,10 @@ limitations under the License.
 .mx_SidebarUserSettingsTab {
     .mx_Checkbox {
         margin-top: 12px;
+    }
+
+    .mx_Checkbox,
+    .mx_SidebarUserSettingsTab_checkboxMicrocopy {
         font-size: $font-15px;
         line-height: $font-24px;
         color: $secondary-content;
@@ -29,9 +33,6 @@ limitations under the License.
 
     .mx_SidebarUserSettingsTab_checkboxMicrocopy {
         margin-bottom: 12px;
-        font-size: $font-15px;
-        line-height: $font-24px;
-        color: $secondary-content;
     }
 
     .mx_SidebarUserSettingsTab_homeAllRoomsCheckbox {
