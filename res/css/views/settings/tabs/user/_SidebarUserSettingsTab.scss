@@ -16,7 +16,7 @@ limitations under the License.
 
 .mx_SidebarUserSettingsTab {
     .mx_Checkbox {
-        margin-top: 12px;
+        margin-top: $spacing-12;
     }
 
     .mx_Checkbox,
@@ -28,16 +28,16 @@ limitations under the License.
 
     .mx_SidebarUserSettingsTab_checkboxMicrocopy,
     .mx_SidebarUserSettingsTab_homeAllRoomsCheckbox {
-        margin-left: $spacing-24;
+        margin-inline-start: $spacing-24;
     }
 
     .mx_SidebarUserSettingsTab_checkboxMicrocopy {
-        margin-bottom: 12px;
+        margin-bottom: $spacing-12;
     }
 
     .mx_SidebarUserSettingsTab_homeAllRoomsCheckbox {
         & + div {
-            margin-left: 48px;
+            margin-inline-start: 48px;
         }
     }
 
@@ -46,7 +46,7 @@ limitations under the License.
     .mx_SidebarUserSettingsTab_peopleCheckbox,
     .mx_SidebarUserSettingsTab_orphansCheckbox {
         .mx_Checkbox_background + div {
-            padding-left: 20px;
+            padding-inline-start: $spacing-20;
             position: relative;
 
             &::before {
