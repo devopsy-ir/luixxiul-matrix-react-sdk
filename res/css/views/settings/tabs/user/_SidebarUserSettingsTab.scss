@@ -22,17 +22,19 @@ limitations under the License.
         color: $secondary-content;
     }
 
+    .mx_SidebarUserSettingsTab_checkboxMicrocopy,
+    .mx_SidebarUserSettingsTab_homeAllRoomsCheckbox {
+        margin-left: $spacing-24;
+    }
+
     .mx_SidebarUserSettingsTab_checkboxMicrocopy {
         margin-bottom: 12px;
-        margin-left: 24px;
         font-size: $font-15px;
         line-height: $font-24px;
         color: $secondary-content;
     }
 
     .mx_SidebarUserSettingsTab_homeAllRoomsCheckbox {
-        margin-left: 24px;
-
         & + div {
             margin-left: 48px;
         }
