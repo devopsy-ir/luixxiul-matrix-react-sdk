@@ -17,7 +17,7 @@ limitations under the License.
 .mx_PinnedEventTile {
     min-height: 40px;
     width: 100%;
-    padding: 0 4px 12px;
+    padding: 0 $spacing-4 $spacing-12;
 
     display: grid;
     grid-template-areas:
@@ -26,11 +26,11 @@ limitations under the License.
         "footer footer footer";
     grid-template-rows: max-content auto max-content;
     grid-template-columns: 24px auto 24px;
-    grid-row-gap: 12px;
-    grid-column-gap: 8px;
+    grid-row-gap: $spacing-12;
+    grid-column-gap: $spacing-8;
 
     & + .mx_PinnedEventTile {
-        padding: 12px 4px;
+        padding: $spacing-12 $spacing-4;
         border-top: 1px solid $menu-border-color;
     }
 
