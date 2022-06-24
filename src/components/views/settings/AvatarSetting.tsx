@@ -79,7 +79,7 @@ const AvatarSetting: React.FC<IProps> = ({ avatarUrl, avatarAltText, avatarName,
         { avatarElement }
         <div className="mx_AvatarSetting_hover">
             <div className="mx_AvatarSetting_hoverBg" />
-            <span>{ _t("Upload") }</span>
+            <span className="mx_AvatarSetting_hover_label">{ _t("Upload") }</span>
         </div>
         { uploadAvatarBtn }
         { removeAvatarBtn }

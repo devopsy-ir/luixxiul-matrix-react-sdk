@@ -54,12 +54,6 @@ limitations under the License.
 
         opacity: 0;
 
-        > span {
-            color: $primary-content;
-            position: relative; // tricks the layout engine into putting this on top of the bg
-            font-weight: 500;
-        }
-
         .mx_AvatarSetting_hoverBg {
             // absolute position to lazily fill the entire container
             position: absolute;
@@ -68,6 +62,12 @@ limitations under the License.
             opacity: 0.5;
             background-color: $quinary-content;
             border-radius: $AvatarSetting_avatar-size;
+        }
+
+        .mx_AvatarSetting_hover_label {
+            color: $primary-content;
+            position: relative; // tricks the layout engine into putting this on top of the bg
+            font-weight: 500;
         }
     }
 
