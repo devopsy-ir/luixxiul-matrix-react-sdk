@@ -92,9 +92,8 @@ limitations under the License.
 
     .mx_AvatarSetting_avatarPlaceholder {
         background-color: $system;
-    }
 
-    .mx_AvatarSetting_avatarPlaceholder::before {
+    &::before {
         background-color: $quinary-content;
         mask: url("$(res)/img/feather-customised/user.svg");
         mask-repeat: no-repeat;
@@ -107,6 +106,7 @@ limitations under the License.
         left: 0;
         right: 0;
     }
+    }
 
     .mx_AvatarSetting_uploadButton {
         width: 32px;
@@ -117,9 +117,8 @@ limitations under the License.
         position: absolute;
         bottom: 0;
         right: 0;
-    }
 
-    .mx_AvatarSetting_uploadButton::before {
+    &::before {
         content: "";
         display: block;
         width: 100%;
@@ -129,5 +128,6 @@ limitations under the License.
         mask-size: 55%;
         background-color: $quinary-content;
         mask-image: url('$(res)/img/feather-customised/edit.svg');
+    }
     }
 }
