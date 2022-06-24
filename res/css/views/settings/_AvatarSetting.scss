@@ -17,8 +17,8 @@ limitations under the License.
 .mx_AvatarSetting_avatar {
     $AvatarSetting_avatar-size: 90px;
 
-    width: 90px;
-    height: 90px;
+    width: $AvatarSetting_avatar-size;
+    height: $AvatarSetting_avatar-size;
     margin-top: 8px;
     position: relative;
 
@@ -39,7 +39,7 @@ limitations under the License.
 
         pointer-events: none; // let the pointer fall through the underlying thing
 
-        line-height: 90px;
+        line-height: $AvatarSetting_avatar-size;
         text-align: center;
 
         opacity: 0;
@@ -57,7 +57,7 @@ limitations under the License.
 
             opacity: 0.5;
             background-color: $quinary-content;
-            border-radius: 90px;
+            border-radius: $AvatarSetting_avatar-size;
         }
     }
 
@@ -83,9 +83,9 @@ limitations under the License.
     & > img,
     .mx_AvatarSetting_avatarPlaceholder {
         display: block;
-        height: 90px;
+        height: $AvatarSetting_avatar-size;
         width: inherit;
-        border-radius: 90px;
+        border-radius: $AvatarSetting_avatar-size;
         cursor: pointer;
     }
 
