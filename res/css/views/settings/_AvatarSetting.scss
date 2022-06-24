@@ -84,16 +84,20 @@ limitations under the License.
         cursor: pointer;
     }
 
+    .mx_AvatarSetting_avatarPlaceholder::before,
+    .mx_AvatarSetting_uploadButton::before {
+        background-color: $quinary-content;
+        content: "";
+        mask-repeat: no-repeat;
+        mask-position: center;
+    }
+
     .mx_AvatarSetting_avatarPlaceholder {
         background-color: $system;
 
         &::before {
-            background-color: $quinary-content;
-            mask: url("$(res)/img/feather-customised/user.svg");
-            mask-repeat: no-repeat;
+            mask-image: url("$(res)/img/feather-customised/user.svg");
             mask-size: 36px;
-            mask-position: center;
-            content: '';
             position: absolute;
             inset: 0;
         }
@@ -110,14 +114,10 @@ limitations under the License.
         right: 0;
 
         &::before {
-            content: "";
             display: block;
             width: 100%;
             height: 100%;
-            mask-repeat: no-repeat;
-            mask-position: center;
             mask-size: 55%;
-            background-color: $quinary-content;
             mask-image: url('$(res)/img/feather-customised/edit.svg');
         }
     }
