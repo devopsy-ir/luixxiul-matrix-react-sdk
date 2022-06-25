@@ -219,11 +219,6 @@ hr.mx_RoomView_myReadMarker {
     opacity: 1;
 }
 
-// Rooms with immersive content
-.mx_RoomView_immersive .mx_RoomHeader_wrapper {
-    border: unset;
-}
-
 .mx_RoomView_callStatusBar {
     .mx_UploadBar_uploadProgressInner {
         background-color: $background;

@@ -41,6 +41,11 @@ limitations under the License.
     padding-top: 8px;
     border-bottom: 1px solid $system;
 
+    // Rooms with immersive content
+    .mx_RoomView_immersive & {
+        border: unset;
+    }
+
     .mx_InviteOnlyIcon_large {
         margin: 0;
     }
