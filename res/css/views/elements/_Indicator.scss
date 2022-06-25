@@ -44,11 +44,13 @@ limitations under the License.
 }
 
 .mx_Indicator {
+    --Indicator-size: 8px;
+
     position: absolute;
     right: -3px;
     top: -3px;
-    width: $dot-size;
-    height: $dot-size;
+    width: var(--Indicator-size);
+    height: var(--Indicator-size);
     border-radius: 50%;
     transform: scale(1);
     background: rgba($pulse-color, 1);
