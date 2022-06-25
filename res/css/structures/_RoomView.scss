@@ -218,13 +218,15 @@ hr.mx_RoomView_myReadMarker {
     border: unset;
 }
 
-.mx_RoomView_callStatusBar .mx_UploadBar_uploadProgressInner {
+.mx_RoomView_callStatusBar {
+.mx_UploadBar_uploadProgressInner {
     background-color: $background;
 }
 
-.mx_RoomView_callStatusBar .mx_UploadBar_uploadFilename {
+.mx_UploadBar_uploadFilename {
     color: $accent-fg-color;
     opacity: 1.0;
+}
 }
 
 .mx_RoomView_inCall .mx_RoomView_statusAreaBox_line {
