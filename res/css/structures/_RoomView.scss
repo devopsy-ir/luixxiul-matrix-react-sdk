@@ -273,10 +273,10 @@ object {
     font-weight: bold;
     padding: 6px 0;
     cursor: pointer;
-}
 
-.mx_RoomView_ongoingConfCallNotification a {
+a {
     color: $accent-fg-color !important;
+}
 }
 
 .mx_MatrixChat_useCompactLayout {
