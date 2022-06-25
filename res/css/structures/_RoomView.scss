@@ -187,10 +187,10 @@ limitations under the License.
     /* needed as min-height is set to clientHeight in ScrollPanel
     to prevent shrinking when WhoIsTypingTile is hidden */
     box-sizing: border-box;
-}
 
-.mx_RoomView_MessageList li {
+li {
     clear: both;
+}
 }
 
 li.mx_RoomView_myReadMarker_container {
