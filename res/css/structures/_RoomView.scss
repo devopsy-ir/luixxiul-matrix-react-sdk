@@ -205,17 +205,6 @@ hr.mx_RoomView_myReadMarker {
     opacity: 1;
 }
 
-.mx_RoomView_callStatusBar {
-    .mx_UploadBar_uploadProgressInner {
-        background-color: $background;
-    }
-
-    .mx_UploadBar_uploadFilename {
-        color: $accent-fg-color;
-        opacity: 1.0;
-    }
-}
-
 .mx_RoomView_inCall {
     .mx_RoomView_statusAreaBox_line {
         margin-top: 2px;
@@ -226,37 +215,6 @@ hr.mx_RoomView_myReadMarker {
     .mx_MessageComposer_wrapper {
         border-top: 2px hidden;
         padding-top: 1px;
-    }
-}
-
-.mx_RoomView_voipChevron {
-    position: absolute;
-    bottom: -11px;
-    right: 11px;
-}
-
-.mx_RoomView_voipButton {
-    float: right;
-    margin-right: 13px;
-    margin-top: 13px;
-    cursor: pointer;
-
-    object {
-        pointer-events: none;
-    }
-}
-
-.mx_RoomView_ongoingConfCallNotification {
-    width: 100%;
-    text-align: center;
-    background-color: $alert;
-    color: $accent-fg-color;
-    font-weight: bold;
-    padding: 6px 0;
-    cursor: pointer;
-
-    a {
-        color: $accent-fg-color !important;
     }
 }
 
