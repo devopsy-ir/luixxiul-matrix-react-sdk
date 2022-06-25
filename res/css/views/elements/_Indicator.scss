@@ -1,0 +1,74 @@
+/*
+Copyright 2022 Suguru Hirahara <1k9jp7jt4@relay.firefox.com>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+@keyframes mx_Indicator_pulse {
+    0% {
+        transform: scale(0.95);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.95);
+    }
+}
+
+@keyframes mx_Indicator_pulse_shadow {
+    0% {
+        opacity: 0.7;
+    }
+
+    70% {
+        transform: scale(2.2);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.mx_Indicator {
+    position: absolute;
+    right: -3px;
+    top: -3px;
+    width: $dot-size;
+    height: $dot-size;
+    border-radius: 50%;
+    transform: scale(1);
+    background: rgba($pulse-color, 1);
+    box-shadow: 0 0 0 0 rgba($pulse-color, 1);
+    animation: mx_Indicator_pulse 2s infinite;
+    animation-iteration-count: 1;
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        top: 0;
+        left: 0;
+        transform: scale(1);
+        transform-origin: center center;
+        animation-name: mx_Indicator_pulse_shadow;
+        animation-duration: inherit;
+        animation-iteration-count: inherit;
+        border-radius: 50%;
+        background: inherit;
+    }
+}
