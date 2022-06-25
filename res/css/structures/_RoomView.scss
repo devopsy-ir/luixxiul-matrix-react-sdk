@@ -30,6 +30,10 @@ limitations under the License.
     flex-direction: column;
     flex: 1;
     position: relative;
+
+    .mx_MainSplit {
+        flex: 1 1 0;
+    }
 }
 
 .mx_MainSplit_timeline {
@@ -65,10 +69,6 @@ limitations under the License.
 
 .mx_RoomView_auxPanel_apps {
     max-width: 1920px !important;
-}
-
-.mx_RoomView .mx_MainSplit {
-    flex: 1 1 0;
 }
 
 .mx_RoomView_messagePanel {
