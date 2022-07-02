@@ -97,16 +97,16 @@ $left-gutter: 64px;
 
     .mx_ReplyChain {
         margin-bottom: $spacing-8;
-    }
 
-    .mx_ReplyChain--expanded {
-        .mx_EventTile_body {
-            display: block;
-            overflow-y: scroll;
-        }
+        &.mx_ReplyChain--expanded {
+            .mx_EventTile_body {
+                display: block;
+                overflow-y: scroll;
+            }
 
-        .mx_EventTile_collapsedCodeBlock {
-            display: block !important; // !important needed due to .mx_ReplyTile .mx_EventTile_content .mx_EventTile_pre_container > pre
+            .mx_EventTile_collapsedCodeBlock {
+                display: block !important; // !important needed due to .mx_ReplyTile .mx_EventTile_content .mx_EventTile_pre_container > pre
+            }
         }
     }
 
