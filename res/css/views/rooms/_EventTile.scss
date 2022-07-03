@@ -26,6 +26,11 @@ $left-gutter: 64px;
     --EventTile_ThreadSummary-line-height: calc(2 * $font-12px);
 
     flex-shrink: 0;
+    max-width: 100%;
+    clear: both;
+    padding-top: 18px;
+    font-size: $font-14px;
+    position: relative;
 
     .mx_EventTile_avatar {
         cursor: pointer;
@@ -345,6 +350,14 @@ $left-gutter: 64px;
     }
 
     &[data-layout=bubble] {
+        margin-top: var(--gutterSize);
+        margin-left: var(--EventTile_bubble-margin-inline-start);
+
+        // Reset default values. TODO: remove
+        max-width: unset;
+        clear: unset;
+        padding-top: 0;
+
         .mx_EventTileBubble {
             // Timestamps are inside the tile, so the width can be less constrained
             max-width: 600px;
@@ -357,12 +370,6 @@ $left-gutter: 64px;
 }
 
 .mx_EventTile:not([data-layout=bubble]) {
-    max-width: 100%;
-    clear: both;
-    padding-top: 18px;
-    font-size: $font-14px;
-    position: relative;
-
     &.mx_EventTile_info {
         padding-top: 0;
 
