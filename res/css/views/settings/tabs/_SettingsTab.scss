@@ -85,6 +85,11 @@ limitations under the License.
         }
     }
 
+    .mx_SettingsTab_section_border {
+        border-bottom: 1px solid $menu-border-color;
+        padding-bottom: $spacing-24;
+    }
+
     > p {
         margin-inline-end: $end-gutter;
     }

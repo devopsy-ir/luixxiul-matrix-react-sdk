@@ -99,7 +99,7 @@ const SpaceSettingsVisibilityTab = ({ matrixClient: cli, space, closeSettingsFn 
 
     let addressesSection;
     if (space.getJoinRule() === JoinRule.Public) {
-        addressesSection = <>
+        addressesSection = <div class="mx_SettingsTab_section">
             <span className="mx_SettingsTab_subheading">{ _t("Address") }</span>
             <AliasSettings
                 roomId={space.roomId}
@@ -108,7 +108,7 @@ const SpaceSettingsVisibilityTab = ({ matrixClient: cli, space, closeSettingsFn 
                 canonicalAliasEvent={canonicalAliasEv}
                 hidePublishSetting={!serverSupportsExploringSpaces}
             />
-        </>;
+        </div>;
     }
 
     return <div className="mx_SettingsTab">
@@ -137,7 +137,7 @@ const SpaceSettingsVisibilityTab = ({ matrixClient: cli, space, closeSettingsFn 
                 disabled={!canSetHistoryVisibility}
                 label={_t("Preview Space")}
             />
-            <p>
+            <p className="mx_SettingsTab_section_border">
                 { _t("Allow people to preview your space before they join.") }<br />
                 <b>{ _t("Recommended for public spaces.") }</b>
             </p>
