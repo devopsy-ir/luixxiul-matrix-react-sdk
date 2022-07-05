@@ -72,7 +72,7 @@ const SpaceSettingsVisibilityTab = ({ matrixClient: cli, space, closeSettingsFn 
 
     let advancedSection;
     if (joinRule === JoinRule.Public) {
-        advancedSection = <div>
+        advancedSection = <div className="mx_SettingsTab_section">
             <AccessibleButton
                 data-test-id='toggle-guest-access-btn'
                 onClick={toggleAdvancedSection}
@@ -80,8 +80,7 @@ const SpaceSettingsVisibilityTab = ({ matrixClient: cli, space, closeSettingsFn 
                 className="mx_SettingsTab_showAdvanced">
                 { showAdvancedSection ? _t("Hide advanced") : _t("Show advanced") }
             </AccessibleButton>
-
-            { showAdvancedSection && <div className="mx_SettingsTab_toggleWithDescription">
+            { showAdvancedSection && <div>
                 <LabelledToggleSwitch
                     value={guestAccessEnabled}
                     onChange={setGuestAccessEnabled}
@@ -127,23 +126,22 @@ const SpaceSettingsVisibilityTab = ({ matrixClient: cli, space, closeSettingsFn 
                 onError={() => setError(_t("Failed to update the visibility of this space"))}
                 closeSettingsFn={closeSettingsFn}
             />
-            { advancedSection }
-            <div className="mx_SettingsTab_toggleWithDescription">
-                <LabelledToggleSwitch
-                    value={historyVisibility === HistoryVisibility.WorldReadable}
-                    onChange={(checked: boolean) => {
-                        setHistoryVisibility(checked ? HistoryVisibility.WorldReadable : HistoryVisibility.Shared);
-                    }}
-                    disabled={!canSetHistoryVisibility}
-                    label={_t("Preview Space")}
-                />
-                <p>
-                    { _t("Allow people to preview your space before they join.") }<br />
-                    <b>{ _t("Recommended for public spaces.") }</b>
-                </p>
-            </div>
         </SettingsFieldset>
-
+        { advancedSection }
+        <div class="mx_SettingsTab_section">
+            <LabelledToggleSwitch
+                value={historyVisibility === HistoryVisibility.WorldReadable}
+                onChange={(checked: boolean) => {
+                    setHistoryVisibility(checked ? HistoryVisibility.WorldReadable : HistoryVisibility.Shared);
+                }}
+                disabled={!canSetHistoryVisibility}
+                label={_t("Preview Space")}
+            />
+            <p>
+                { _t("Allow people to preview your space before they join.") }<br />
+                <b>{ _t("Recommended for public spaces.") }</b>
+            </p>
+        </div>
         { addressesSection }
     </div>;
 };
