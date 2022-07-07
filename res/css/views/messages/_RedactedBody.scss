@@ -13,11 +13,13 @@ limitations under the License.
 */
 
 .mx_RedactedBody {
+    --RedactedBody-padding-inline-start: 20px;
+
     white-space: pre-wrap;
     color: $muted-fg-color;
     vertical-align: middle;
 
-    padding-left: 20px;
+    padding-left: var(--RedactedBody-padding-inline-start);
     position: relative;
 
     &::before {

@@ -1090,6 +1090,16 @@ $left-gutter: 64px;
                 }
             }
 
+            .mx_RedactedBody {
+                display: block; // Cancel inline effect of span element on ThreadView
+                line-height: unset;
+                margin-inline-start: calc(var(--ThreadView_group_spacing-start) - var(--RedactedBody-padding-inline-start));
+
+                &::before {
+                    inset: $spacing-4 0 0 $spacing-4; // align with text
+                }
+            }
+
             .mx_ReplyChain_wrapper {
                 .mx_MLocationBody,
                 .mx_UnknownBody { // Error message inside ReplyTile
