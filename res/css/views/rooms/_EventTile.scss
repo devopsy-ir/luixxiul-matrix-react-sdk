@@ -165,6 +165,7 @@ $left-gutter: 64px;
         .mx_EventTile_reply {
             position: relative;
             border-radius: 8px;
+            text-align: start;
         }
 
         .mx_EventTile_reply {
@@ -471,7 +472,7 @@ $left-gutter: 64px;
         font-size: $font-12px;
         color: $roomtopic-color;
         display: inline-block;
-        margin-left: 9px;
+        margin-inline-start: 9px; // TODO: Use a spacing variable
     }
 
     .mx_EventTile_edited {

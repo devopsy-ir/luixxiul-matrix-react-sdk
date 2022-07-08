@@ -632,6 +632,7 @@ export default class TextualBody extends React.Component<IBodyProps, IState> {
         if (isEmote) {
             return (
                 <div className="mx_MEmoteBody mx_EventTile_content"
+                    dir="auto"
                     onClick={this.onBodyLinkClick}
                 >
                     *&nbsp;
@@ -650,6 +651,7 @@ export default class TextualBody extends React.Component<IBodyProps, IState> {
         if (isNotice) {
             return (
                 <div className="mx_MNoticeBody mx_EventTile_content"
+                    dir="auto"
                     onClick={this.onBodyLinkClick}
                 >
                     { body }
@@ -658,7 +660,10 @@ export default class TextualBody extends React.Component<IBodyProps, IState> {
             );
         }
         return (
-            <div className="mx_MTextBody mx_EventTile_content" onClick={this.onBodyLinkClick}>
+            <div className="mx_MTextBody mx_EventTile_content"
+                dir="auto"
+                onClick={this.onBodyLinkClick}
+            >
                 { body }
                 { widgets }
             </div>
