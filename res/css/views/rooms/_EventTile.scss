@@ -486,6 +486,11 @@ $left-gutter: 64px;
         color: inherit; // inherit the colour from the dark or light theme by default (but not for code blocks)
         font-size: $font-14px;
 
+        ol,
+        ul {
+            padding-inline: 2em 0; // override the default values
+        }
+
         pre,
         code {
             font-family: $monospace-font-family !important;
