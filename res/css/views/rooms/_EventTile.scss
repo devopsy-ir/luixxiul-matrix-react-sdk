@@ -543,7 +543,8 @@ $left-gutter: 64px;
         }
 
         blockquote {
-            border-left: 2px solid $blockquote-bar-color;
+            border-inline-start: 2px solid $blockquote-bar-color;
+            border-inline-end: none;
             border-radius: 2px;
             padding: 0 10px;
         }
