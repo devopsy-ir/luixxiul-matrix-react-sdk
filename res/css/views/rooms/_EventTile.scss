@@ -36,6 +36,11 @@ $left-gutter: 64px;
         overflow-y: hidden;
     }
 
+    .mx_EventTile_line,
+    .mx_EventTile_reply {
+        text-align: start;
+    }
+
     .mx_EventTile_receiptSent,
     .mx_EventTile_receiptSending {
         position: relative;
@@ -165,7 +170,6 @@ $left-gutter: 64px;
         .mx_EventTile_reply {
             position: relative;
             border-radius: 8px;
-            text-align: start;
         }
 
         .mx_EventTile_reply {
