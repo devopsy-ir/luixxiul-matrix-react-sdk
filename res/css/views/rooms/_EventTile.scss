@@ -351,7 +351,7 @@ $left-gutter: 64px;
 
     &[data-layout=bubble] {
         margin-top: var(--gutterSize);
-        margin-left: var(--EventTile_bubble-margin-inline-start);
+        margin-inline-start: var(--EventTile_bubble-margin-inline-start);
 
         // Reset default values. TODO: remove
         max-width: unset;
