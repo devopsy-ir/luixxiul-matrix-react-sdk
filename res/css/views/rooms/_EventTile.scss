@@ -440,6 +440,17 @@ $left-gutter: 64px;
             max-width: 600px;
         }
 
+        &.mx_EventTile_bubbleContainer {
+            .mx_EventTile_line {
+                // Override default values
+                --EventTile_bubble_line-margin-inline-start: 0;
+                --EventTile_bubble_line-margin-inline-end: 0;
+                --EventBubbleTile_line-max-width: 100%;
+
+                width: 100%;
+            }
+        }
+
         &.mx_EventTile_continuation {
             margin-top: 2px;
         }
