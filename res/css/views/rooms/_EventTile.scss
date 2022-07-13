@@ -445,7 +445,7 @@ $left-gutter: 64px;
                 // Override default values
                 --EventTile_bubble_line-margin-inline-start: 0;
                 --EventTile_bubble_line-margin-inline-end: 0;
-                --EventBubbleTile_line-max-width: 100%;
+                --EventTile_bubble_line-max-width: 100%;
 
                 width: 100%;
             }
@@ -1171,7 +1171,7 @@ $left-gutter: 64px;
             .mx_EventTile_line.mx_EventTile_mediaLine {
                 padding-block: 0;
                 padding-inline-start: 0;
-                max-width: var(--EventBubbleTile_line-max-width);
+                max-width: var(--EventTile_bubble_line-max-width);
             }
 
             &[data-self=true] {
