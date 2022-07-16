@@ -151,6 +151,21 @@ describe("Timeline", () => {
             cy.percySnapshot("Configured room on IRC layout");
         });
 
+        it("should add inline start padding to EventTile_line of GenericEventListSummary on IRC layout", () => {
+            cy.visit("/#/room/" + roomId);
+            cy.setSettingValue("layout", null, SettingLevel.DEVICE, Layout.IRC);
+
+            // cf. _IRCLayout.pcss
+            //  --name-width: 80px;
+            //  --icon-width: 14px;
+            //  --right-padding: 5px;
+            // cf. _EventTile.pcss
+            //  calc(var(--name-width) + var(--icon-width) + $MessageTimestamp_width + 3 * var(--right-padding));
+            //  = 80 + 14 + 46($MessageTimestamp_width) + 3*5 = 155px
+            cy.get(".mx_GenericEventListSummary[data-layout=irc] > .mx_EventTile_line")
+                .should('have.css', 'padding-inline-start', '155px');
+        });
+
         it("should click 'collapse' link button on the first hovered info event line on bubble layout", () => {
             cy.visit("/#/room/" + roomId);
             cy.setSettingValue("layout", null, SettingLevel.DEVICE, Layout.Bubble);
