@@ -151,6 +151,32 @@ describe("Timeline", () => {
             cy.percySnapshot("Configured room on IRC layout");
         });
 
+        it("should not add block start padding to a continued event tile on modern=group layout", () => {
+            cy.visit("/#/room/" + roomId);
+            cy.setSettingValue("layout", null, SettingLevel.DEVICE, Layout.Group);
+            cy.contains(".mx_RoomView_body .mx_GenericEventListSummary[data-layout=group] " +
+                ".mx_GenericEventListSummary_summary", "created and configured the room.");
+
+            // First message
+            cy.get(".mx_RoomView_body .mx_BasicMessageComposer_input").type("Hello{enter}");
+            // Wait for message to send
+            cy.get(".mx_RoomView_body .mx_EventTile").contains(".mx_EventTile[data-scroll-tokens]", "Hello");
+
+            // Second message
+            cy.get(".mx_RoomView_body .mx_BasicMessageComposer_input").type("Hello Again{enter}");
+            // Wait for message to send
+            cy.get(".mx_RoomView_body .mx_EventTile").contains(".mx_EventTile[data-scroll-tokens]", "Hello Again");
+
+            // Check block start padding of the second message
+            cy.get(".mx_EventTile[data-layout=group].mx_EventTile_continuation")
+                .should('have.css', 'padding-block-start', '0px');
+
+            // Exclude timestamp from snapshot
+            const percyCSS = ".mx_RoomView_body .mx_EventTile[data-layout=group] .mx_MessageTimestamp "
+                + "{ visibility: hidden !important; }";
+            cy.percySnapshot("EventTile_continuation on modern=group layout", { percyCSS });
+        });
+
         it("should click 'collapse' link button on the first hovered info event line on bubble layout", () => {
             cy.visit("/#/room/" + roomId);
             cy.setSettingValue("layout", null, SettingLevel.DEVICE, Layout.Bubble);
