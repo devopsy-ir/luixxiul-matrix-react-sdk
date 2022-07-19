@@ -143,27 +143,26 @@ describe("Timeline", () => {
             });
         });
 
-        it("should create and configure a room on IRC layout", () => {
+        it("should configure a room on IRC layout", () => {
             cy.visit("/#/room/" + roomId);
+
+            // configure a room on IRC layout
             cy.setSettingValue("layout", null, SettingLevel.DEVICE, Layout.IRC);
             cy.contains(".mx_RoomView_body .mx_GenericEventListSummary[data-layout=irc] " +
                 ".mx_GenericEventListSummary_summary", "created and configured the room.");
             cy.percySnapshot("Configured room on IRC layout");
-        });
 
-        it("should add inline start padding to EventTile_line of GenericEventListSummary on IRC layout", () => {
-            cy.visit("/#/room/" + roomId);
-            cy.setSettingValue("layout", null, SettingLevel.DEVICE, Layout.IRC);
-
-            // cf. _IRCLayout.pcss
-            //  --name-width: 80px;
-            //  --icon-width: 14px;
-            //  --right-padding: 5px;
-            // cf. _EventTile.pcss
-            //  calc(var(--name-width) + var(--icon-width) + $MessageTimestamp_width + 3 * var(--right-padding));
-            //  = 80 + 14 + 46($MessageTimestamp_width) + 3*5 = 155px
+            // add inline start padding to EventTile_line of GenericEventListSummary on IRC layout
             cy.get(".mx_GenericEventListSummary[data-layout=irc] > .mx_EventTile_line")
+                // cf. _IRCLayout.pcss
+                //  --name-width: 80px;
+                //  --icon-width: 14px;
+                //  --right-padding: 5px;
+                // cf. _EventTile.pcss
+                //  calc(var(--name-width) + var(--icon-width) + $MessageTimestamp_width + 3 * var(--right-padding));
+                //  = 80 + 14 + 46($MessageTimestamp_width) + 3*5 = 155px
                 .should('have.css', 'padding-inline-start', '155px');
+            cy.percySnapshot("EventTile_line of GenericEventListSummary");
         });
 
         it("should click top left of view source event toggle", () => {
