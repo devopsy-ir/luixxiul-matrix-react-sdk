@@ -150,7 +150,6 @@ describe("Timeline", () => {
             cy.setSettingValue("layout", null, SettingLevel.DEVICE, Layout.IRC);
             cy.contains(".mx_RoomView_body .mx_GenericEventListSummary[data-layout=irc] " +
                 ".mx_GenericEventListSummary_summary", "created and configured the room.");
-            cy.percySnapshot("Configured room on IRC layout");
 
             // add inline start padding to EventTile_line of GenericEventListSummary on IRC layout
             cy.get(".mx_GenericEventListSummary[data-layout=irc] > .mx_EventTile_line")
@@ -162,7 +161,7 @@ describe("Timeline", () => {
                 //  calc(var(--name-width) + var(--icon-width) + $MessageTimestamp_width + 3 * var(--right-padding));
                 //  = 80 + 14 + 46($MessageTimestamp_width) + 3*5 = 155px
                 .should('have.css', 'padding-inline-start', '155px');
-            cy.percySnapshot("EventTile_line of GenericEventListSummary");
+            cy.percySnapshot("Configured room on IRC layout");
         });
 
         it("should click top left of view source event toggle", () => {
