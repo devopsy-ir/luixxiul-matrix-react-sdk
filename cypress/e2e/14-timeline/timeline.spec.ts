@@ -20,7 +20,6 @@ import { MessageEvent } from "matrix-events-sdk";
 
 import type { ISendEventResponse } from "matrix-js-sdk/src/@types/requests";
 import type { EventType } from "matrix-js-sdk/src/@types/event";
-import type { MatrixClient } from "matrix-js-sdk/src/client";
 import { SynapseInstance } from "../../plugins/synapsedocker";
 import { SettingLevel } from "../../../src/settings/SettingLevel";
 import { Layout } from "../../../src/settings/enums/Layout";
@@ -46,10 +45,14 @@ const expectDisplayName = (e: JQuery<HTMLElement>, displayName: string): void =>
 };
 
 const expectAvatar = (e: JQuery<HTMLElement>, avatarUrl: string): void => {
-    cy.getClient().then((cli: MatrixClient) => {
+    cy.all([
+        cy.window({ log: false }),
+        cy.getClient(),
+    ]).then(([win, cli]) => {
+        const size = AVATAR_SIZE * win.devicePixelRatio;
         expect(e.find(".mx_BaseAvatar_image").attr("src")).to.equal(
             // eslint-disable-next-line no-restricted-properties
-            cli.mxcUrlToHttp(avatarUrl, AVATAR_SIZE, AVATAR_SIZE, AVATAR_RESIZE_METHOD),
+            cli.mxcUrlToHttp(avatarUrl, size, size, AVATAR_RESIZE_METHOD),
         );
     });
 };
@@ -71,31 +74,30 @@ describe("Timeline", () => {
     let oldAvatarUrl: string;
     let newAvatarUrl: string;
 
+    beforeEach(() => {
+        cy.startSynapse("default").then(data => {
+            synapse = data;
+            cy.initTestUser(synapse, OLD_NAME).then(() =>
+                cy.createRoom({ name: ROOM_NAME }).then(_room1Id => {
+                    roomId = _room1Id;
+                }),
+            );
+        });
+    });
+
+    afterEach(() => {
+        cy.stopSynapse(synapse);
+    });
+
     describe("useOnlyCurrentProfiles", () => {
         beforeEach(() => {
-            cy.startSynapse("default").then(data => {
-                synapse = data;
-                cy.initTestUser(synapse, OLD_NAME).then(() =>
-                    cy.window({ log: false }).then(() => {
-                        cy.createRoom({ name: ROOM_NAME }).then(_room1Id => {
-                            roomId = _room1Id;
-                        });
-                    }),
-                ).then(() => {
-                    cy.uploadContent(OLD_AVATAR).then((url) => {
-                        oldAvatarUrl = url;
-                        cy.setAvatarUrl(url);
-                    });
-                }).then(() => {
-                    cy.uploadContent(NEW_AVATAR).then((url) => {
-                        newAvatarUrl = url;
-                    });
-                });
+            cy.uploadContent(OLD_AVATAR).then((url) => {
+                oldAvatarUrl = url;
+                cy.setAvatarUrl(url);
             });
-        });
-
-        afterEach(() => {
-            cy.stopSynapse(synapse);
+            cy.uploadContent(NEW_AVATAR).then((url) => {
+                newAvatarUrl = url;
+            });
         });
 
         it("should show historical profiles if disabled", () => {
@@ -142,6 +144,12 @@ describe("Timeline", () => {
                 expectAvatar(e, newAvatarUrl);
             });
         });
+    });
+
+    describe("message displaying", () => {
+        beforeEach(() => {
+            cy.injectAxe();
+        });
 
         it("should configure a room on IRC layout", () => {
             cy.visit("/#/room/" + roomId);
@@ -161,6 +169,8 @@ describe("Timeline", () => {
                 //  calc(var(--name-width) + var(--icon-width) + $MessageTimestamp_width + 3 * var(--right-padding));
                 //  = 80 + 14 + 46($MessageTimestamp_width) + 3*5 = 155px
                 .should('have.css', 'padding-inline-start', '155px');
+
+            cy.get(".mx_Spinner").should("not.exist");
             cy.percySnapshot("Configured room on IRC layout");
         });
 
@@ -184,10 +194,47 @@ describe("Timeline", () => {
                 .should('have.css', "margin-inline-start", "104px")
                 .should('have.css', "inset-inline-start", "0px");
 
+            cy.get(".mx_Spinner").should("not.exist");
             // Exclude timestamp from snapshot
             const percyCSS = ".mx_RoomView_body .mx_EventTile_info .mx_MessageTimestamp "
                 + "{ visibility: hidden !important; }";
             cy.percySnapshot("Event line with inline start margin on IRC layout", { percyCSS });
+            cy.checkA11y();
+        });
+
+        it("should set inline start padding to a hidden event line", () => {
+            sendEvent(roomId);
+            cy.visit("/#/room/" + roomId);
+            cy.setSettingValue("showHiddenEventsInTimeline", null, SettingLevel.DEVICE, true);
+            cy.contains(".mx_RoomView_body .mx_GenericEventListSummary .mx_GenericEventListSummary_summary",
+                "created and configured the room.");
+
+            // Edit message
+            cy.contains(".mx_RoomView_body .mx_EventTile .mx_EventTile_line", "Message").within(() => {
+                cy.get('[aria-label="Edit"]').click({ force: true }); // Cypress has no ability to hover
+                cy.get(".mx_BasicMessageComposer_input").type("Edit{enter}");
+            });
+            cy.get(".mx_RoomView_body .mx_EventTile").contains(".mx_EventTile[data-scroll-tokens]", "MessageEdit");
+
+            // Click timestamp to highlight hidden event line
+            cy.get(".mx_RoomView_body .mx_EventTile_info .mx_MessageTimestamp").click();
+
+            // Exclude timestamp from snapshot
+            const percyCSS = ".mx_RoomView_body .mx_EventTile .mx_MessageTimestamp "
+                + "{ visibility: hidden !important; }";
+
+            // should not add inline start padding to a hidden event line on IRC layout
+            cy.setSettingValue("layout", null, SettingLevel.DEVICE, Layout.IRC);
+            cy.get(".mx_EventTile[data-layout=irc].mx_EventTile_info .mx_EventTile_line")
+                .should('have.css', 'padding-inline-start', '0px');
+            cy.percySnapshot("Hidden event line with zero padding on IRC layout", { percyCSS });
+
+            // should add inline start padding to a hidden event line on modern layout
+            cy.setSettingValue("layout", null, SettingLevel.DEVICE, Layout.Group);
+            cy.get(".mx_EventTile[data-layout=group].mx_EventTile_info .mx_EventTile_line")
+                // calc(var(--EventTile_group_line-spacing-inline-start) + 20px) = 64 + 20 = 84px
+                .should('have.css', 'padding-inline-start', '84px');
+            cy.percySnapshot("Hidden event line with padding on modern layout", { percyCSS });
         });
 
         it("should click top left of view source event toggle", () => {
@@ -227,6 +274,47 @@ describe("Timeline", () => {
 
             // Make sure "collapse" link button worked
             cy.get(".mx_GenericEventListSummary_toggle[aria-expanded=false]");
+        });
+    });
+
+    describe("message sending", () => {
+        const MESSAGE = "Hello world";
+        const viewRoomSendMessageAndSetupReply = () => {
+            // View room
+            cy.visit("/#/room/" + roomId);
+
+            // Send a message
+            cy.getComposer().type(`${MESSAGE}{enter}`);
+
+            // Reply to the message
+            cy.get(".mx_RoomView_body .mx_EventTile").contains(".mx_EventTile_line", "Hello world").within(() => {
+                cy.get('[aria-label="Reply"]').click({ force: true }); // Cypress has no ability to hover
+            });
+        };
+
+        it("can reply with a text message", () => {
+            const reply = "Reply";
+            viewRoomSendMessageAndSetupReply();
+
+            cy.getComposer().type(`${reply}{enter}`);
+
+            cy.get(".mx_RoomView_body .mx_EventTile .mx_EventTile_line").find(".mx_ReplyTile .mx_MTextBody")
+                .should("contain", MESSAGE);
+            cy.get(".mx_RoomView_body .mx_EventTile > .mx_EventTile_line > .mx_MTextBody").contains(reply)
+                .should("have.length", 1);
+        });
+
+        xit("can reply with a voice message", () => {
+            viewRoomSendMessageAndSetupReply();
+
+            cy.openMessageComposerOptions().find(`[aria-label="Voice Message"]`).click();
+            cy.wait(3000);
+            cy.getComposer().find(".mx_MessageComposer_sendMessage").click();
+
+            cy.get(".mx_RoomView_body .mx_EventTile .mx_EventTile_line").find(".mx_ReplyTile .mx_MTextBody")
+                .should("contain", MESSAGE);
+            cy.get(".mx_RoomView_body .mx_EventTile > .mx_EventTile_line > .mx_MVoiceMessageBody")
+                .should("have.length", 1);
         });
     });
 });
